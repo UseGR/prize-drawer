@@ -14,7 +14,7 @@
             label='Описание для победителя'
             :rules='winnerDescriptionRules'
         ></v-text-field>
-
+        {{errorMessage}}
         <v-btn type='submit' block class='mt-2'>Сформировать</v-btn>
       </v-form>
     </v-sheet>
@@ -28,6 +28,7 @@ export default {
   name: 'App',
   data() {
     return {
+      errorMessage: '',
       api_url: process.env.VUE_APP_API_URL + '/api/lots',
       description: '',
       descriptionRules: [
@@ -58,6 +59,7 @@ export default {
               console.log(response)
               window.Telegram.WebApp.close()
             })
+            .catch(error => this.errorMessage = error)
       }
     },
   }
