@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       errorMessage: '',
-      api_url: 'https://cors-anywhere.herokuapp.com/' + process.env.VUE_APP_API_URL + '/api/lots',
+      api_url: process.env.VUE_APP_API_URL + '/api/lots',
       description: '',
       descriptionRules: [
         value => {
