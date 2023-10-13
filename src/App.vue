@@ -2,7 +2,7 @@
   <v-container>
     <v-row class='ma-3 justify-center text-h5 text-center'>Сформировать лот для розыгрыша</v-row>
     <v-sheet width='auto' class='mx-3'>
-      <v-form fast-fail @submit.prevent>
+      <v-form fast-fail @submit.prevent='postNewLot'>
         <v-text-field
             v-model='description'
             label='Описание для администратора'
@@ -15,7 +15,7 @@
             :rules='winnerDescriptionRules'
         ></v-text-field>
 
-        <v-btn type='submit' block class='mt-2' @click='postNewLot'>Сформировать</v-btn>
+        <v-btn type='submit' block class='mt-2'>Сформировать</v-btn>
       </v-form>
     </v-sheet>
   </v-container>
