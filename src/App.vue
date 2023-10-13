@@ -49,15 +49,16 @@ export default {
   },
   methods: {
     postNewLot() {
-      axios.post(this.api_url, {
-        description: this.description,
-        winnerDescription: this.winnerDescription
-      })
-          .then(response => {
-            console.log(response)
-            window.Telegram.WebApp.close()
-          })
-          .catch(error => console.error(error))
+      if (this.description && this.winnerDescription) {
+        axios.post(this.api_url, {
+          description: this.description,
+          winnerDescription: this.winnerDescription
+        })
+            .then(response => {
+              console.log(response)
+              window.Telegram.WebApp.close()
+            })
+      }
     },
   }
 }
