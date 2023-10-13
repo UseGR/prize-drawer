@@ -14,7 +14,7 @@
             label='Описание для победителя'
             :rules='winnerDescriptionRules'
         ></v-text-field>
-        {{errorMessage}}
+        {{ errorMessage }}
         <v-btn type='submit' block class='mt-2'>Сформировать</v-btn>
       </v-form>
     </v-sheet>
@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       errorMessage: '',
-      api_url: process.env.VUE_APP_API_URL + '/api/lots',
+      api_url: 'https://cors-anywhere.herokuapp.com/' + process.env.VUE_APP_API_URL + '/api/lots',
       description: '',
       descriptionRules: [
         value => {
