@@ -59,7 +59,7 @@ export default {
               console.log(response)
               window.Telegram.WebApp.close()
             })
-            .catch(error => this.errorMessage = error)
+            .catch(error => this.errorMessage = error.toJSON())
       }
     },
   }
