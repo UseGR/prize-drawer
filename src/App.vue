@@ -55,7 +55,7 @@ export default {
       })
           .then(response => {
             console.log(response)
-            window.close();
+            window.Telegram.WebApp.close()
           })
           .catch(error => console.error(error))
     },
