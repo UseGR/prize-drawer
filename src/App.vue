@@ -69,7 +69,7 @@ export default {
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             description: this.description,
-            winnerDescription: this.winnerDescriptionRules
+            winnerDescription: this.winnerDescription
           })
         }).then(response => console.log(response))
             .catch(error => console.log(error.toJSON()))
