@@ -51,19 +51,28 @@ export default {
   methods: {
     postNewLot() {
       if (this.description && this.winnerDescription) {
-        axios.post(this.api_url, {
-          description: this.description,
-          winnerDescription: this.winnerDescription
-        }, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-            .then(response => {
-              console.log(response)
-              window.Telegram.WebApp.close()
-            })
-            .catch(error => this.errorMessage = error.toJSON())
+        // axios.post(this.api_url, {
+        //   description: this.description,
+        //   winnerDescription: this.winnerDescription
+        // }, {
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   }
+        // })
+        //     .then(response => {
+        //       console.log(response)
+        //       window.Telegram.WebApp.close()
+        //     })
+        //     .catch(error => this.errorMessage = error.toJSON())
+        fetch(this.api_url, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            description: this.description,
+            winnerDescription: this.winnerDescriptionRules
+          })
+        }).then(response => console.log(response))
+            .catch(error => console.log(error.toJSON()))
       }
     },
   }
