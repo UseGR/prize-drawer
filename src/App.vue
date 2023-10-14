@@ -54,6 +54,10 @@ export default {
         axios.post(this.api_url, {
           description: this.description,
           winnerDescription: this.winnerDescription
+        }, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
         })
             .then(response => {
               console.log(response)
