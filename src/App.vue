@@ -72,7 +72,7 @@ export default {
             winnerDescription: this.winnerDescription
           })
         }).then(response => console.log(response))
-            .catch(error => console.log(error.toJSON()))
+            .catch(error => this.errorMessage = error.toJSON())
       }
     },
   }
