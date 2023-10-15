@@ -22,8 +22,8 @@
 </template>
 
 <script>
-// import axios from 'axios';
-
+import axios from 'axios';
+import https from 'https';
 export default {
   name: 'App',
   data() {
@@ -51,28 +51,31 @@ export default {
   methods: {
     postNewLot() {
       if (this.description && this.winnerDescription) {
-        // axios.post(this.api_url, {
-        //   description: this.description,
-        //   winnerDescription: this.winnerDescription
-        // }, {
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   }
-        // })
-        //     .then(response => {
-        //       console.log(response)
-        //       window.Telegram.WebApp.close()
-        //     })
-        //     .catch(error => this.errorMessage = error.toJSON())
-        fetch(this.api_url, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            description: this.description,
-            winnerDescription: this.winnerDescription
-          })
-        }).then(response => console.log(response))
+        axios.post(this.api_url, {
+          description: this.description,
+          winnerDescription: this.winnerDescription
+        }, {
+          httpsAgent: new https.Agent({
+            rejectUnauthorized: false
+          }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        })
+            .then(response => {
+              console.log(response)
+              window.Telegram.WebApp.close()
+            })
             .catch(error => this.errorMessage = error.toJSON())
+        // fetch(this.api_url, {
+        //   method: 'POST',
+        //   headers: {'Content-Type': 'application/json'},
+        //   body: JSON.stringify({
+        //     description: this.description,
+        //     winnerDescription: this.winnerDescription
+        //   })
+        // }).then(response => console.log(response))
+        //     .catch(error => this.errorMessage = error.toJSON())
       }
     },
   }
