@@ -23,7 +23,7 @@
 
 <script>
 // import axios from 'axios';
-import https from 'https';
+// import https from 'https';
 
 export default {
   name: 'App',
@@ -69,11 +69,11 @@ export default {
         //     })
         //     .catch(error => this.errorMessage = error.toJSON())
         fetch(this.api_url, {
-          agent: new https.Agent({
-            rejectUnauthorized: false
-          }),
+          // agent: new https.Agent({
+          //   rejectUnauthorized: false
+          // }),
           method: 'POST',
-          mode: 'no-cors',
+          mode: 'cors',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             description: this.description,
