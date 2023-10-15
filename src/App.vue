@@ -73,6 +73,7 @@ export default {
             rejectUnauthorized: false
           }),
           method: 'POST',
+          mode: 'cors',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             description: this.description,
