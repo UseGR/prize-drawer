@@ -62,8 +62,8 @@ export default {
             'Content-Type': 'application/json'
           }
         })
-            .then(response => {
-              console.log(response)
+            .then(responsee => {
+              console.log(responsee)
               window.Telegram.WebApp.close()
             })
             .catch(error => this.errorMessage = error.toJSON())
