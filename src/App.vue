@@ -50,7 +50,7 @@ export default {
     }
   },
   methods: {
-    postNewLot() {
+    async postNewLot() {
       if (this.description && this.winnerDescription) {
         // axios.post(this.api_url, {
         //   description: this.description,
@@ -68,12 +68,8 @@ export default {
         //       window.Telegram.WebApp.close()
         //     })
         //     .catch(error => this.errorMessage = error.toJSON())
-        fetch(this.api_url, {
-          // agent: new https.Agent({
-          //   rejectUnauthorized: false
-          // }),
+        await fetch(this.api_url, {
           method: 'POST',
-          mode: 'cors',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             description: this.description,

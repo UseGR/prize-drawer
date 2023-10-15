@@ -12,6 +12,7 @@
     "core-js": "^3.8.3",
     "https-browserify": "^1.0.0",
     "node-polyfill-webpack-plugin": "^2.0.1",
+    "undici": "^5.26.3",
     "vue": "^3.2.13",
     "vuetify": "^3.3.21"
   },
