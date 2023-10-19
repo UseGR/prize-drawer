@@ -22,9 +22,6 @@
 </template>
 
 <script>
-// import axios from 'axios';
-// import https from 'https';
-
 export default {
   name: 'App',
   data() {
