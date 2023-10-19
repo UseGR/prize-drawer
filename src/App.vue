@@ -72,7 +72,7 @@ export default {
             description: this.description,
             winnerDescription: this.winnerDescription
           })
-        }).then(response => console.log(response))
+        }).then(() => window.Telegram.WebApp.close())
             .catch(error => this.errorMessage = error)
       }
     },
