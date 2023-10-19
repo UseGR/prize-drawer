@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import {useWebApp} from 'vue-tg'
+
 export default {
   name: 'App',
   data() {
@@ -72,7 +74,10 @@ export default {
             description: this.description,
             winnerDescription: this.winnerDescription
           })
-        }).then(() => window.Telegram.WebApp.close())
+        }).then(response => {
+          useWebApp().close();
+          console.log(response);
+        })
             .catch(error => this.errorMessage = error)
       }
     },
